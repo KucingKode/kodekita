@@ -1,0 +1,49 @@
+---
+import { getCollection } from "astro:content";
+
+import Layout from '@/layouts/Layout.astro';
+import { FaTrophy, FaBars } from "react-icons/fa";
+import PostCard from "@/components/PostCard.astro";
+
+
+const posts = await getCollection("posts");
+---
+
+<Layout title="Welcome to Astro.">
+	<main>
+		<div class="container posts">
+			<h1 class="posts__title">Artikel Kita.</h1>
+			<div class="posts__posts">
+				{
+					posts.map((post: any) => (
+						<PostCard
+							tags={post.data.tags}
+							image={post.data.image}
+							title={post.data.title}
+							description={post.data.description}
+							slug={post.slug}
+						/>
+					))
+				}
+			</div>
+		</div>
+	</main>
+</Layout>
+
+<style>
+    .posts {
+		margin-bottom: 5rem;
+        margin-top: 5rem;
+
+        .posts__title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+		.posts__posts {
+			display: flex;
+			flex-wrap: wrap;
+			margin-bottom: 2rem;
+		}
+	}
+</style>

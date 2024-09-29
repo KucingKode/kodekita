@@ -1,0 +1,99 @@
+---
+import { CollectionEntry, getCollection } from "astro:content"
+import Layout from "@/layouts/Layout.astro"
+import formatDate from "@/utils/formatDate"
+import Tags from "@/components/Tags.astro"
+import "@/styles/github-markdown-light.css"
+
+export async function getStaticPaths() {
+  const posts = await getCollection("posts")
+
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }))
+}
+
+type Props = {
+  post: CollectionEntry<"posts">
+}
+
+const { post } = Astro.props
+console.log(post)
+const { Content } = await post.render()
+---
+
+<Layout title={post.data.title}>
+    <div class="container post">
+        <header role="presentation">
+            <h1 class="post__title">
+                {post.data.title}
+            </h1>
+            <p class="post__author">{post.data.author}</p>
+            <p class="post__date">{formatDate(post.data.date)}</p>
+
+            <div class="post__image">
+                <img class="post__image__content" src={post.data.image} alt="Cover image">
+            </div>
+        </header>
+
+        <main class="markdown-body post__body">
+            <Content />
+        </main>
+
+        <Tags tags={post.data.tags} />
+
+        <a href="/posts">
+            <button class="post__back button button--secondary">
+                Lihat artikel lain
+            </button>
+        </a>
+    </div>
+</Layout>
+
+<script>
+    const content = document.querySelector(".post__body")
+</script>
+
+<style>
+    .post {
+        margin: 5rem auto;
+        max-width: 65rem;
+        
+        .post__image {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background-color: var(--secondary-box);
+            border-radius: var(--rounded-lg);
+            margin: 2rem 0;
+        }
+
+        .post__image__content {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .post__title {
+            font-weight: bold;
+            font-size: 2rem;
+        }
+
+        .post__author {
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .post__date {
+            font-weight: bold;
+        }
+
+        .post__body {
+            margin-bottom:2rem
+        }
+
+        .post__back {
+            margin-top: 2rem;
+        }
+    }
+</style>

@@ -1,0 +1,53 @@
+---
+import { FaTrophy, FaBars } from "react-icons/fa";
+---
+<header>
+    <nav class="container navbar">
+        <div class="navbar__wrapper">
+            <a href="/">
+                <div class="navbar__logo">
+                    <img src="/src/assets/logo.svg" alt="" srcset="">
+                    <img src="/src/assets/logoText.svg" alt="" srcset="">
+                </div>
+            </a>
+
+            <div class="navbar__buttons">
+                <button class="navbar__button">
+                    <FaTrophy size="1.25rem"/>
+                </button>
+                <button class="navbar__button">
+                    <FaBars size="1.25rem"/>
+                </button>
+            </div>
+        </div>
+    </nav>
+</header>
+<style>
+    .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: var(--bg);
+        z-index: 10;
+        width: 100vw;
+
+		.navbar__wrapper {
+			display: flex;
+			width: 100%;
+			justify-content: space-between;
+		}
+
+		.navbar__logo img {
+			margin-right: 0.3rem;
+		}
+
+		.navbar__buttons {
+			display: flex;
+			flex-direction: row;
+		}
+
+		.navbar__button {
+			margin-left: 1rem
+		}
+	}
+</style>

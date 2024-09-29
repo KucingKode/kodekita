@@ -1,0 +1,28 @@
+collections:
+  - name: "post" # Used in routes, e.g., /admin/collections/blog
+    label: "Posts" # Used in the UI
+    folder: "src/content/posts" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    format: frontmatter
+    preview_path: post/{{slug}}
+    fields:
+      - { name: isPublish, label: Publish, widget: boolean, default: true}
+      - { name: isDraft, label: Draft, widget: boolean, default: false}
+      - { name: tags, label: Tags, widget: list }
+      - { name: series, label: Series }
+      - { name: image, label: OG Image, widget: image }
+      - { name: title, label: Title }
+      - { name: description, label: Description }
+      - { name: author, label: Author }
+      - { name: date, label: Date, widget: datetime, format: YYYY-MM-DD }
+      - { name: body, label: Body, widget: markdown }
+site_url: "https://kodekita.netlify.app/"
+publish_mode: editorial_workflow
+media_folder: "src/assets/images" # Location where files will be stored in the repo
+public_folder: "src/assets/images" # The src attribute for uploaded media
+backend:
+  name: github
+  repo: gxanshu/astro-decap-cms-starter #replace with your githu repo
+  branch: main
+  squash_merges: true
+  open_authoring: true

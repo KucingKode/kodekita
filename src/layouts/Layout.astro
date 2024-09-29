@@ -1,4 +1,7 @@
 ---
+import Navbar from '@/components/Navbar.astro';
+import Footer from '@/components/Footer.astro';
+
 interface Props {
 	title: string;
 }
@@ -7,7 +10,7 @@ const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="id">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
@@ -17,34 +20,116 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
+		<Navbar />
 		<slot />
+		<Footer />
 	</body>
 </html>
 <style is:global>
+	@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+
 	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
+		font-size: 16px;
+
+		--secondary-box: #efefef;
+		--secondary-action: #888888;
+		--secondary-text: #4b4b4b;
+
+		--primary: #FF0F1B;
+		--primary-shadow: #FF0F1B77;
+		--text-shadow: #25252577;
+		--text: #252525;
+		--bg: #FFF;
+
+		--rounded: 8px;
+		--rounded-lg: 16px;
 	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
+
+	body {
+		background-color: var(--bg);
+		overflow-x: hidden;
 	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
+
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+	
+	p, h1, h2, h3, a, button {
+		font-family: "Lora", serif;
+		font-optical-sizing: auto;
+		font-size: 1rem;
+		color: var(--text);
+	}
+
+	button {
+		all: unset;
+		cursor: pointer;
+	}
+
+	a {
+		text-decoration: none;
+	}
+
+	.link:hover {
+		text-decoration: underline;
+	}
+
+	.button {
+		font-weight: bold;
+		color: var(--bg);
+		padding: 1rem 2rem;
+		min-width: 10rem;
+		background-color: var(--primary);
+		margin: 0.25rem 0;
+		border-radius: var(--rounded);
+		box-shadow: 0px 4px 10px var(--primary-shadow);
+		
+		a {
+			color: var(--bg);
+		}
+	}
+
+	.button--secondary {
+		background-color: var(--text);
+		color: var(--bg);
+		box-shadow: 0px 4px 10px var(--text-shadow);
+	}
+
+	.container {
+		padding: 1rem 8vw;
+	}
+
+	.bold {
+		font-weight: bold;
+	}
+
+	.flex {
+		display: flex;
+	}
+
+	.flex--col {
+		flex-direction: column;
+	}
+
+	.flex--row {
+		flex-direction: row;
+	}
+
+	.flex--wrap {
+		flex-wrap: wrap;
+	}
+
+	::-webkit-scrollbar {
+		width: 0.8rem;
+	}
+
+	::-webkit-scrollbar-track {
+		background: var(--secondary-box);
+	}
+
+	::-webkit-scrollbar-thumb {
+		background: var(--secondary-action);
 	}
 </style>
