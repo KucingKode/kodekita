@@ -19,7 +19,6 @@ type Props = {
 }
 
 const { post } = Astro.props
-console.log(post)
 const { Content } = await post.render()
 ---
 
@@ -33,7 +32,7 @@ const { Content } = await post.render()
             <p class="post__date">{formatDate(post.data.date)}</p>
 
             <div class="post__image">
-                <img class="post__image__content" src={post.data.image} alt="Cover image">
+                <img class="post__image__content" src={post.data.image} alt="gambar sampul" loading="lazy">
             </div>
         </header>
 

@@ -1,13 +1,16 @@
 ---
-import { FaTrophy, FaBars } from "react-icons/fa";
+import { FaTrophy, FaBars } from "react-icons/fa"
+import { Image } from "astro:assets"
+import Logo from "@/assets/logo.svg"
+import TextLogo from "@/assets/logoText.svg"
 ---
 <header>
     <nav class="container navbar">
         <div class="navbar__wrapper">
             <a href="/">
                 <div class="navbar__logo">
-                    <img src="/src/assets/logo.svg" alt="" srcset="">
-                    <img src="/src/assets/logoText.svg" alt="" srcset="">
+                    <Image src={Logo} alt="logo kodekita" />
+                    <Image src={TextLogo} alt="logo kodekita" />
                 </div>
             </a>
 
