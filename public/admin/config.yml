@@ -22,7 +22,7 @@ media_folder: "src/assets/images" # Location where files will be stored in the r
 public_folder: "src/assets/images" # The src attribute for uploaded media
 backend:
   name: github
-  repo: gxanshu/astro-decap-cms-starter #replace with your githu repo
+  repo: KucingKode/kodekita
   branch: main
   squash_merges: true
   open_authoring: true
