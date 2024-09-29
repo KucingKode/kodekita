@@ -12,9 +12,11 @@ const posts = await getCollection("posts")
 <Layout title="KodeKita">
 	<main>
 		<section>
-			<div class="hero flex flex--col">
+			<div class="hero">
 				<div class="hero__bg">
-					<Image class="hero__bg-img" src={HeroImage} alt="gambar hero kodekita" />
+					<div class="hero__bg__wrapper">
+						<Image class="hero__bg__image" src={HeroImage} alt="gambar hero kodekita" />
+					</div>
 				</div>
 				<div class="container hero__content">
 					<p class="hero__text">
@@ -79,6 +81,8 @@ const posts = await getCollection("posts")
 <style>
 	.hero {
 		height: 100vh;
+		display: flex;
+		flex-direction: column;
     
 		.hero__content {
 			position: relative;
@@ -97,22 +101,31 @@ const posts = await getCollection("posts")
 		}
 
 		.hero__bg {
-			display: flex;
 			position: relative;
 			top: 0;
 			left: 0;
 			z-index: -10;
 		}
-		.hero__bg-img {
-			margin-left: auto;
-			width: min(360px, 100vw);
+		
+		.hero__bg__wrapper {
+			display: flex;
+			width: 100vw;
 			height: 100vh;
-			object-fit: cover;
+		}
+
+		.hero__bg__image {
+			margin-left: auto;
+			margin-bottom: auto;
+			width: min(360px, 100vw);
+			height: auto;
+			object-fit: scale-down;
 			scale: -1;
 		}
 	}
 
 	.newsletter {
+		display: flex;
+		flex-direction: column;
 		background-color: var(--text);
 		padding-top: 3rem;
 		padding-bottom: 3rem;
@@ -134,7 +147,6 @@ const posts = await getCollection("posts")
 			background-color: var(--bg);
 			padding: 1rem 2rem;
 			margin: 0.5rem 0;
-			width: 100%;
       		max-width: 20rem;
 			border-radius: var(--rounded);
 		}
