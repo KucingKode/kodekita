@@ -7,7 +7,7 @@ tags:
   - javascript
   - nodejs
 series: series
-image: src/assets/images/header.png
+image: /src/assets/images/header.png
 title: The Power Of React Hooks
 description: Lorem ipsum dolor sit amet consectetur et ultrices blandit neque ege
 date: 2023-05-24

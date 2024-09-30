@@ -18,8 +18,8 @@ collections:
       - { name: body, label: Body, widget: markdown }
 site_url: "https://kodekita.netlify.app/"
 publish_mode: editorial_workflow
-media_folder: "src/assets/images" # Location where files will be stored in the repo
-public_folder: "src/assets/images" # The src attribute for uploaded media
+media_folder: "/src/assets/images" # Location where files will be stored in the repo
+public_folder: "/src/assets/images" # The src attribute for uploaded media
 backend:
   name: github
   repo: KucingKode/kodekita
