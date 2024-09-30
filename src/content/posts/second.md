@@ -1,13 +1,15 @@
 ---
-slug: "the-power-of-react-hooks-2"
 isPublish: true
+author: KucingKode
+slug: the-power-of-react-hooks-2
 isDraft: false
-tags: ["javascript","nodejs"]
-series: "series"
-image: "/favicon.svg"
-title: "The Power Of React Hooks 2"
-author: "KucingKode"
-description: "Lorem ipsum dolor sit amet consectetur et ultrices blandit neque ege"
+tags:
+  - javascript
+  - nodejs
+series: series
+image: src/assets/images/header.png
+title: The Power Of React Hooks 2
+description: Lorem ipsum dolor sit amet consectetur et ultrices blandit neque ege
 date: 2023-05-24
 ---
 
