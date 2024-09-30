@@ -4,6 +4,7 @@ import Layout from "@/layouts/Layout.astro"
 import formatDate from "@/utils/formatDate"
 import Tags from "@/components/Tags.astro"
 import "@/styles/github-markdown-light.css"
+import { Image } from "astro:assets"
 
 export async function getStaticPaths() {
   const posts = await getCollection("posts")
@@ -32,7 +33,13 @@ const { Content } = await post.render()
             <p class="post__date">{formatDate(post.data.date)}</p>
 
             <div class="post__image">
-                <img class="post__image__content" src={post.data.image} alt="gambar sampul" loading="lazy">
+                <img
+                    class="post__image__content"
+                    src={post.data.image}
+                    decoding="async"
+                    loading="lazy"
+                    alt="gambar sampul"
+                />
             </div>
         </header>
 
@@ -62,15 +69,13 @@ const { Content } = await post.render()
         .post__image {
             width: 100%;
             aspect-ratio: 16/9;
-            background-color: var(--secondary-box);
-            border-radius: var(--rounded-lg);
             margin: 2rem 0;
         }
 
         .post__image__content {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: scale-down;
         }
 
         .post__title {
